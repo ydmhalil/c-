@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+
+class Point {
+private:
+    double x, y;
+
+public:
+    // Default constructor
+    Point() : x(1), y(1) {}
+
+    // Constructor with parameters
+    Point(double x, double y) : x(x), y(y) {}
+
+    // displays: displays the coordinates of the point
+    void displays() {
+        std::cout << "(" << x << ", " << y << ")" << std::endl;
+    }
+
+    // compare: checks if two points are same
+    bool compare(const Point& other) {
+        return (x == other.x && y == other.y);
+    }
+
+    // distance: calculates the distance between two points
+    double distance(const Point& other) {
+        return std::sqrt(std::pow(x - other.x, 2) + std::pow(y - other.y, 2));
+    }
+
+    // midpoint: returns the midpoint of two points
+    Point midpoint(const Point& other) {
+        double mid_x = (x + other.x) / 2;
+        double mid_y = (y + other.y) / 2;
+        return Point(mid_x, mid_y);
+    }
+};
+
+int main() {
+    Point p1(3, 4);
+    Point p2(6, 8);
+    Point p3(4.5, 6);
+
+    p1.displays(); // Output: (3, 4)
+    p2.displays(); // Output: (6, 8)
+    p3.displays(); // Output: (4.5, 6)
+
+    if (p1.compare(p3)) {
+        std::cout << "p1 and p3 are the same point." << std::endl;
+    } else {
+        std::cout << "p1 and p3 are different points." << std::endl;
+    }
+
+    std::cout << "Distance between p1 and p3: " << p1.distance(p3) << std::endl;
+
+    Point mid = p1.midpoint(p3);
+    mid.displays(); // Output: (3.75, 5)
+
+    return 0;
+}
