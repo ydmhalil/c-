@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class teacher1 {
+private:
+    string ad;
+    string soyad;
+    string brans;
+    int yas;
+    double maas;
+
+public:
+    void setad(string ad) {
+        this->ad = ad;
+    }
+
+    void setsoyad(string soyad) {
+        this->soyad = soyad;
+    }
+
+    void setyas(int yas) {
+        this->yas = yas;
+    }
+
+    void setbrans(string brans) {
+        this->brans = brans;
+    }
+
+    void setmaas(double maas) {
+        this->maas = maas;
+    }
+
+    string getad() {
+        return ad;
+    }
+
+    string getsoyad() {
+        return soyad;
+    }
+
+    int getyas() {
+        return yas;
+    }
+
+    string getbrans() {
+        return brans;
+    }
+
+    double getmaas() {
+        return maas;
+    }
+};
+
+int main() {
+    teacher1 nesne1;
+
+    nesne1.setad("Jawwed");
+    nesne1.setsoyad("undefined");
+    nesne1.setyas(45);
+    nesne1.setbrans("YAZILIM");
+    nesne1.setmaas(45000);
+
+    cout << "ADI: " << nesne1.getad() << endl;
+    cout << "SOYADI :" << nesne1.getsoyad() << endl;
+    cout << "YAŞI:" << nesne1.getyas() << endl;
+    cout << "BRANŞI :" << nesne1.getbrans() << endl;
+    cout << "MAAŞI:" << nesne1.getmaas() << endl;
+
+    return 0;
+}
