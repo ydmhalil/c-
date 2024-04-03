@@ -1,0 +1,202 @@
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+void UseSwitch()
+{
+    char grade;
+    grade = tolower('A');
+    
+    switch (grade) {
+        case 'a':
+            cout << "Excellent";
+            break;
+        case 'b':
+            cout << "Good";
+            break;
+        case 'c':
+            cout << "Average";
+            break;
+        case 'd':
+            cout << "Below Average";
+            break;
+        case 'f':
+            cout << "Fail";
+            break;
+        default:
+            cout << "Invalid grade";
+    }
+
+}
+
+void Sumer()
+{
+    int n = 5;
+    int sum = 0;
+    int finalSum = 0;
+    for(int i = 1; i <= n; i++)
+    {
+        sum += i;
+        for(int j = 1; j <= i; j++)
+        {
+            if(j == 1)
+            {
+                cout<<j;
+            }
+            else
+            {
+                cout<<" + "<<j;
+            }
+        }
+        
+        cout<<" = "<<sum<<endl;
+        finalSum += sum;
+    }
+    
+    cout<<"The sum is "<<finalSum<<endl;
+}
+
+void OddNumbers()
+{
+    int n = 4;
+    for(int i = 1, j = 0; j <= n; i += 2)
+    {
+        cout<<i<<endl;
+        j++;
+    }
+}
+
+void NumbersPattern()
+{
+    int rows = 4;
+    int num = 1;
+
+    for (int i = 0; i < rows; ++i) {
+        for (int space = 0; space < rows - i - 1; ++space) {
+            cout << " ";
+        }
+        
+        for (int j = 0; j <= i; ++j) {
+            cout << num++ << " ";
+        }
+
+        cout <<endl;
+    }
+}
+
+void SumNumbers()
+{
+    int count = 1;
+    int sum = 0;
+    
+    cout << "Natural numbers: ";
+    while (count <= 7) {
+        cout << count << " ";
+        sum += count;
+        count++;
+    }
+
+    cout << "\nSum: " << sum <<endl;
+
+}
+
+void DoWhileLoopWithNumbers()
+{
+    int num = 10;
+    do {
+        cout << num << " " <<endl;
+        num += 2;
+    } while (num <= 28);
+}
+
+void FloyedTriangle()
+{
+    int rows = 4;
+    int num = 1;
+    
+    for (int i = 1; i <= rows; ++i) {
+        for (int j = 1; j <= i; ++j) {
+            if ((i + j) % 2 == 0) {
+                cout << "1";
+            } else {
+                cout << "0";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void AddOnes()
+{
+    int terms = 5;
+    int sum = 0;
+    int current_term = 0;
+
+    cout << "Series: ";
+    for (int i = 0; i < terms; ++i) {
+        current_term = current_term * 10 + 1;
+        sum += current_term;
+        
+        cout << current_term;
+        
+        if (i < terms - 1)
+            cout << " + ";
+    }
+
+    cout << "\nSum of the series is: " << sum << endl;
+}
+
+void NaturalNumbersTerms()
+{
+    int count = 1;
+    int result = 1;
+
+    cout << "Natural numbers: ";
+    while (count <= 5) {
+        cout << count << " ";
+        result *= count;
+        count++;
+    }
+
+    cout << "\nResult: " << result << endl;
+}
+
+void DrawTriangle(int h)
+{
+    for (int i = 0; i < h / 2 + 1; i++)
+    {
+        for (int j = 0; j < h / 2 - i; j++)
+            cout << "  ";
+        for (int j = 0; j < 2 * i + 1; j++)
+            cout << "* ";
+        cout << endl;
+    }
+}
+
+void DrawDiamond(int h)
+{
+    for (int i = 0; i < h / 2 + 1; i++)
+    {
+        for (int j = 0; j < h / 2 - i; j++)
+            cout << "  ";
+        for (int j = 0; j < 2 * i + 1; j++)
+            cout << "* ";
+        cout << endl;
+    }
+
+    // Print the lower half of the diamond
+    for (int i = h / 2 - 1; i >= 0; i--)
+    {
+        for (int j = 0; j < h / 2 - i; j++)
+            cout << "  ";
+        for (int j = 0; j < 2 * i + 1; j++)
+            cout << "* ";
+        cout << endl;
+    }
+}
+
+int main() {
+    DrawDiamond(5);
+    return 0;
+}
