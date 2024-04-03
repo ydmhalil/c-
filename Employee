@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+private:
+    int matricule;
+    std::string lastName, firstName;
+    int yearOfBirth, yearOfHire;
+    double salary;
+
+public:
+    // Default constructor
+    Employee() : matricule(0), lastName(""), firstName(""), yearOfBirth(1900), yearOfHire(2000), salary(0.0) {}
+
+    // Constructor with parameters
+    Employee(int m, std::string ln, std::string fn, int yob, int yoh, double s) : matricule(m), lastName(ln), firstName(fn), yearOfBirth(yob), yearOfHire(yoh), salary(s) {}
+
+    // Method to add attributes from user
+    void addAttributes() {
+        std::cout << "Enter matricule: ";
+        std::cin >> matricule;
+        std::cout << "Enter last name: ";
+        std::cin.ignore();
+        std::getline(std::cin, lastName);
+        std::cout << "Enter first name: ";
+        std::getline(std::cin, firstName);
+        std::cout << "Enter year of birth: ";
+        std::cin >> yearOfBirth;
+        std::cout << "Enter year of hire: ";
+        std::cin >> yearOfHire;
+        std::cout << "Enter salary: ";
+        std::cin >> salary;
+    }
+
+    // Method to add attributes from parameters
+    void addAttributes(int m, std::string ln, std::string fn, int yob, int yoh, double s) {
+        matricule = m;
+        lastName = ln;
+        firstName = fn;
+        yearOfBirth = yob;
+        yearOfHire = yoh;
+        salary = s;
+    }
+
+    // Method to get the employee age
+    int age() {
+        return 2022 - yearOfBirth;
+    }
+
+    // Method to get the employee service years
+    int seniority() {
+        return 2022 - yearOfHire;
+    }
+
+    // Method to increase the employee's salary
+    void salaryIncrease() {
+        int seniority = this->seniority();
+        if (seniority < 5) {
+            salary += salary * 0.02;
+        } else if (seniority < 10) {
+            salary += salary * 0.1;
+        } else {
+            salary += salary * 0.15;
+        }
+    }
+
+    // Method to display employee information
+    void viewEmployee() {
+        std::cout << "Registration number: " << matricule << std::endl;
+        std::cout << "Full name: " << lastName << " " << firstName << std::endl;
+        std::cout << "Age: " << age() << std::endl;
+        std::cout << "Seniority: " << seniority() << std::endl;
+        std::cout << "Salary before increasing: " << salary << std::endl;
+        salaryIncrease();
+        std::cout << "Salary after increasing: " << salary << std::endl;
+    }
+};
+
+int main() {
+    Employee e1;
+    e1.addAttributes(1, "Smith", "John", 1980, 2010, 30000);
+    e1.viewEmployee();
+
+    std::cout << std::endl;
+
+    Employee e2;
+    e2.addAttributes();
+    e2.viewEmployee();
+
+    return 0;
+}
