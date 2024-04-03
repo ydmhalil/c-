@@ -1,0 +1,77 @@
+#include <iostream>
+
+class House {
+private:
+    int year_of_construction;
+    double price;
+
+public:
+    // Default constructor
+    House() : year_of_construction(2000), price(200000) {}
+
+    // Constructor with parameters
+    House(int y, double p) : year_of_construction(y), price(p) {}
+
+    // Display function
+    void display() {
+        std::cout << "Year of Construction: " << year_of_construction << ", Price: " << price << "\n";
+    }
+
+    // Friend function to calculate 2022 price
+    friend void calculate2022Price(House h) {
+        double current_price = ((2022 - h.year_of_construction) * 0.2) * h.price;
+        std::cout << "2022 Price: " << current_price << "\n";
+    }
+
+    // Friend function to compare prices
+    friend void comparePrices(House h1, House h2, House h3) {
+        double price1 = ((2022 - h1.year_of_construction) * 0.2) * h1.price;
+        double price2 = ((2022 - h2.year_of_construction) * 0.2) * h2.price;
+        double price3 = ((2022 - h3.year_of_construction) * 0.2) * h3.price;
+
+        if (price1 > price2 && price1 > price3) {
+            std::cout << "House 1 has the highest 2022 price.\n";
+        }
+        else if (price2 > price1 && price2 > price3) {
+            std::cout << "House 2 has the highest 2022 price.\n";
+        }
+        else if (price3 > price1 && price3 > price2) {
+            std::cout << "House 3 has the highest 2022 price.\n";
+        }
+        else if (price1 == price2 && price1 > price3) {
+            std::cout << "House 1 and House 2 have the highest 2022 price.\n";
+        }
+        else if (price1 == price3 && price1 > price2) {
+            std::cout << "House 1 and House 3 have the highest 2022 price.\n";
+        }
+        else if (price2 == price3 && price2 > price1) {
+            std::cout << "House 2 and House 3 have the highest 2022 price.\n";
+        }
+        else {
+            std::cout << "All houses have the same 2022 price.\n";
+        }
+    }
+};
+
+int main() {
+    // Create 3 objects
+    House h1(2005, 300000);
+    House h2(2010, 400000);
+    House h3;
+
+    // Display the information
+    std::cout << "House 1: ";
+    h1.display();
+    calculate2022Price(h1);
+    std::cout << "House 2: ";
+    h2.display();
+    calculate2022Price(h2);
+    std::cout << "House 3: ";
+    h3.display();
+    calculate2022Price(h3);
+
+    // Compare prices
+    comparePrices(h1, h2, h3);
+
+    return 0;
+}
