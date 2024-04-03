@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cmath>
+
+class Point {
+private:
+    double x, y;
+
+public:
+    // Default constructor
+    Point() : x(1), y(1) {}
+
+    // Constructor with parameters
+    Point(double x, double y) : x(x), y(y) {}
+
+    // Display function
+    void display() {
+        std::cout << "(" << x << ", " << y << ")" << std::endl;
+    }
+
+    // Compare function
+    static bool compare(const Point& p1, const Point& p2) {
+        return (p1.x == p2.x && p1.y == p2.y);
+    }
+
+    // Distance function
+    double distance(const Point& p) {
+        return std::sqrt(std::pow(x - p.x, 2) + std::pow(y - p.y, 2));
+    }
+
+    // Midpoint function
+    Point midpoint(const Point& p) {
+        return Point((x + p.x) / 2, (y + p.y) / 2);
+    }
+};
+
+int main() {
+    Point p1(3, 4);
+    Point p2(3, 4);
+    Point p3(6, 8);
+
+    p1.display();
+    p2.display();
+    p3.display();
+
+    std::cout << "Compare: " << (Point::compare(p1, p2) ? "True" : "False") << std::endl;
+    std::cout << "Distance: " << p1.distance(p3) << std::endl;
+    std::cout << "Midpoint: ";
+    p1.midpoint(p3).display();
+
+    return 0;
+}
