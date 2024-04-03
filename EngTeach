@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+
+// Teacher class with 4 data members
+class Teacher {
+private:
+    std::string name;
+    int age;
+    std::string hiring_date;
+    double salary;
+
+public:
+    // Default constructor
+    Teacher() : name(""), age(0), hiring_date(""), salary(0.0) {}
+
+    // Constructor with parameters
+    Teacher(std::string n, int a, std::string hd, double s) : name(n), age(a), hiring_date(hd), salary(s) {}
+
+    // Display function
+    void display() {
+        std::cout << "Name: " << name << ", Age: " << age << ", Hiring Date: " << hiring_date << ", Salary: " << salary << "\n";
+    }
+};
+
+// Engineer class with 4 data members
+class Engineer {
+private:
+    std::string name;
+    int age;
+    int experience;
+    double salary;
+
+public:
+    // Default constructor
+    Engineer() : name(""), age(0), experience(0), salary(0.0) {}
+
+    // Constructor with parameters
+    Engineer(std::string n, int a, int e, double s) : name(n), age(a), experience(e), salary(s) {}
+
+    // Display function
+    void display() {
+        std::cout << "Name: " << name << ", Age: " << age << ", Experience: " << experience << ", Salary: " << salary << "\n";
+    }
+};
+
+int main() {
+    // Create 2 objects
+    Teacher teacher1("John Doe", 30, "2020-01-01", 50000);
+    Engineer engineer1("Jane Doe", 35, 10, 60000);
+
+    // Test the program
+    teacher1.display();
+    engineer1.display();
+
+    return 0;
+}
