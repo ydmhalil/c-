@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cctype>
-
+//https://www.geeksforgeeks.org/cpp-program-to-print-floyds-triangle/
 using namespace std;
 
 void UseSwitch()
